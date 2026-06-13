@@ -10,7 +10,7 @@ A powerful, lightweight Python tool to convert images and videos into beautiful 
   <tr>
     <td align="center"><b>Original Input</b><br><br><img src="images/test_image.jpg" alt="Original Image" width="300px"/></td>
     <td align="center"><b>Cartoonized Output</b><br><br><img src="images/test_image_cartoon.jpg" alt="Cartoonized Output" width="300px"/></td>
-    <td align="center"><b>Diffusion Output</b><br><br><img src="images/diffusion_output.jpg" alt="Cartoonized Output" width="300px"/></td>
+    <td align="center"><b>Diffusion Output</b><br><br><img src="images/diffusion_output.png" alt="Cartoonized Output" width="300px"/></td>
   </tr>
 </table>
 
