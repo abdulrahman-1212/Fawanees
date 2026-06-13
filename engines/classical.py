@@ -69,14 +69,29 @@ def anime(img: np.ndarray) -> np.ndarray:
     return cv2.addWeighted(result, 0.85, bloom, 0.15, 0)
 
 def sketch(img: np.ndarray) -> np.ndarray:
+    """
+    Pencil-sketch effect:
+    • Greyscale → dodge-blend trick (img / blurred_inverted)
+    • Optional light colour tint for warmth
+    """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     inv = cv2.bitwise_not(gray)
     blur_inv = cv2.GaussianBlur(inv, (21, 21), 0)
-    dodge = cv2.divide(gray, 255.0 - blur_inv, scale=256.0)
+    
+    gray_f = gray.astype(np.float32)
+    blur_inv_f = (255.0 - blur_inv).astype(np.float32)
+    
+    blur_inv_f[blur_inv_f == 0] = 1e-5 
+    
+    # Colour-dodge blend: gray / (1 - blur_inv/255)
+    dodge = cv2.divide(gray_f, blur_inv_f, scale=256.0)
+    
     dodge = np.clip(dodge, 0, 255).astype(np.uint8)
+    
+    # Add subtle warm tint
     sketch_bgr = cv2.cvtColor(dodge, cv2.COLOR_GRAY2BGR)
     tint = np.zeros_like(sketch_bgr)
-    tint[..., 0] = 10  
+    tint[..., 0] = 10   # slight blue (which in BGR boosts warm tones visually)
     tint[..., 2] = 20
     return cv2.add(sketch_bgr, tint)
 

@@ -12,9 +12,9 @@ class CartoonGANInference:
         
         if os.path.exists(weights_path):
             self.model.load_state_dict(torch.load(weights_path, map_location=self.device))
-            print(f"✅ Loaded CartoonGAN weights from {weights_path}")
+            print(f"Loaded CartoonGAN weights from {weights_path}")
         else:
-            print(f"⚠️ Warning: Weights not found at {weights_path}.")
+            print(f"Warning: Weights not found at {weights_path}.")
             
         self.model.eval()
         self.transform = transforms.Compose([
