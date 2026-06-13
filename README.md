@@ -20,13 +20,13 @@ A powerful, lightweight Python tool to convert images and videos into beautiful 
 The core engine processes every image or video frame through a highly optimized, 5-stage computer vision pipeline:
 
 1. **Colour Smoothing**  
-   Applies advanced filtering (e.g., Bilateral filter) to reduce noise and blend similar colors while strictly preserving hard edges. This stage can operate in standard BGR or perceptually uniform LAB color space for better results.
+   Applies advanced filtering (Bilateral filter) to reduce noise and blend similar colors while strictly preserving hard edges. This stage can operate in standard BGR or perceptually uniform LAB color space for better results.
 2. **Colour Quantisation**  
    Reduces the continuous color spectrum into a discrete, flat palette (using K-Means clustering). This creates the classic "posterized" or painted look of traditional cell-shaded animation.
 3. **Edge Detection**  
    Extracts the structural outlines of the scene to simulate hand-drawn ink lines. Supports both standard Canny edge detection and Adaptive thresholding for varied artistic styles.
-4. **Deep Learning Hook *(Optional)***  
-   A built-in architectural extension point designed to seamlessly inject neural networks (like CartoonGAN) between quantization and compositing for hybrid AI-traditional effects. *(Currently a no-op in the base implementation, ready for subclassing).*
+4. **Deep Learning Hook *(to be extended)***  
+   A built-in architectural extension point designed to seamlessly inject neural networks (typically CartoonGAN) between quantization and compositing for hybrid AI-traditional effects. *(Currently a no-op in the base implementation, ready for subclassing).*
 5. **Compositing**  
    Intelligently blends the quantized color base with the extracted edge map, applying final adjustments (like edge dilation) to produce the polished, final cartoon frame.
 
