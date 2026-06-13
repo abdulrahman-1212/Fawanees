@@ -8,8 +8,8 @@ A powerful, lightweight Python tool to convert images and videos into beautiful 
 
 <table>
   <tr>
-    <td align="center"><b>Original Input</b><br><br><img src="test_image.jpg" alt="Original Image" width="400px"/></td>
-    <td align="center"><b>Cartoonized Output</b><br><br><img src="test_image_cartoon.jpg" alt="Cartoonized Output" width="400px"/></td>
+    <td align="center"><b>Original Input</b><br><br><img src="images/test_image.jpg" alt="Original Image" width="400px"/></td>
+    <td align="center"><b>Cartoonized Output</b><br><br><img src="images/test_image_cartoon.jpg" alt="Cartoonized Output" width="400px"/></td>
   </tr>
 </table>
 
